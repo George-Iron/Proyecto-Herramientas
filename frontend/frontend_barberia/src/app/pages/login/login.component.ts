@@ -10,7 +10,7 @@ import { mail, lockClosed } from 'ionicons/icons';
 
 @Component({
     selector: 'app-login',
-    imports: [ReactiveFormsModule, JsonPipe, IonIcon], //importar
+    imports: [ReactiveFormsModule, IonIcon], //importar
     templateUrl: './login.component.html',
     styleUrl: './login.component.css'
 })
