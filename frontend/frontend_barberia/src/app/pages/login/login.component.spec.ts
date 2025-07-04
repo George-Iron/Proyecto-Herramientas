@@ -1,3 +1,5 @@
+//frontend_barberia/src/app/pages/login/login.component.spec.ts
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginComponent } from './login.component';

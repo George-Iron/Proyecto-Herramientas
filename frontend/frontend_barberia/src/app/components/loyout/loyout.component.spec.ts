@@ -1,3 +1,5 @@
+//frontend_barberia/src/app/components/loyout/loyout.component.spec.ts
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoyoutComponent } from './loyout.component';

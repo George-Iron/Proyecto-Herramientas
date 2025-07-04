@@ -1,3 +1,5 @@
+//frontend_barberia/src/app/pages/inicio/inicio.component.spec.ts
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InicioComponent } from './inicio.component';

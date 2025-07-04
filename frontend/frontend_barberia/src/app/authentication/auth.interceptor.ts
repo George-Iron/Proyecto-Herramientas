@@ -1,3 +1,5 @@
+//frontend_barberia/src/app/authentication/auth.interceptor.ts
+
 import { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { AuthServiceService } from './auth-service.service';

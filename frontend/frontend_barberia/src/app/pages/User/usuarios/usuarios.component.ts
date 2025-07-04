@@ -1,3 +1,5 @@
+//frontend_barberia/src/app/pages/User/usuarios/usuarios.component.ts
+
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { usuarioResponseDto } from '../../../model/usuario';
 import { UsuariosService } from '../../../services/usuarios.service';

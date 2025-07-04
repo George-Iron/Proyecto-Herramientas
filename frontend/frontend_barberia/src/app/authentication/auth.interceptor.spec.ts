@@ -1,3 +1,5 @@
+//fronted_barberia/src/app/authentication/auth.interceptor.spec.ts
+
 import { TestBed } from '@angular/core/testing';
 import { HttpInterceptorFn } from '@angular/common/http';
 import { authInterceptor } from './auth.interceptor';

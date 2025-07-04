@@ -1,3 +1,5 @@
+//frontend_barberia/src/app/pages/User/usuarios/usuarios.component.spec.ts
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UsuariosComponent } from './usuarios.component';
