@@ -1,3 +1,5 @@
+//frontend_barberia/src/app/model/usuario.ts
+
 export interface usuarioRequestDto {
     nombre: string; //más usado para crear el usuario
     username: string;

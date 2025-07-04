@@ -1,3 +1,5 @@
+//frontend_barberia/src/app/pages/login/login.component.ts
+
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthServiceService } from '../../authentication/auth-service.service';

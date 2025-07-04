@@ -1,3 +1,5 @@
+//frontend_barberia/src/app/components/loyout/loyout.component.ts
+
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { AuthServiceService } from '../../authentication/auth-service.service';

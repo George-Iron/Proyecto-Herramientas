@@ -1,3 +1,5 @@
+//frontend_barberia/src/app/pages/inicio/inicio.component.ts
+
 import { Component } from '@angular/core';
 
 @Component({

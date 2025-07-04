@@ -1,3 +1,5 @@
+// frontend_barberia/src/app/authentication/auth.guard.ts
+
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { AuthServiceService } from './auth-service.service';
