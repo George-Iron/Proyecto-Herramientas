@@ -16,36 +16,33 @@ export const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent,
-        canActivate: [preventLoggedInAccessGuard] // Evita que un usuario logueado vea el login
+        canActivate: [preventLoggedInAccessGuard]
     },
 
     // 3. Ruta del Panel Principal (protegida): requiere autenticación
     {
         path: 'panel',
-        component: LoyoutComponent, // El Layout es el contenedor principal
-        canActivate: [authGuard],    // Solo accesible si estás logueado
+        component: LoyoutComponent, 
+        canActivate: [authGuard],   
         children: [
-            // Rutas hijas que se mostrarán DENTRO del LoyoutComponent
-            { path: '', redirectTo: 'inicio', pathMatch: 'full' }, // Si entras a /panel, te lleva a /panel/inicio
+            
+            { path: '', redirectTo: 'inicio', pathMatch: 'full' },
             {
-                path: 'inicio', // La URL será /panel/inicio
-                component: InicioComponent // ¡Aquí está tu página de inicio!
+                path: 'inicio', 
+                component: InicioComponent 
             },
             {
-                path: 'usuarios', // La URL será /panel/usuarios
+                path: 'usuarios', 
                 component: UsuariosComponent
             },
             {
-                path: 'usuarios/crear', // La URL será /panel/usuarios/crear
+                path: 'usuarios/crear', 
                 component: UsuariosFormulariosComponent
             },
             {
-                path: 'usuarios/editar/:id', // La URL será /panel/usuarios/editar/123
+                path: 'usuarios/editar/:id', 
                 component: UsuariosFormulariosComponent
             },
-            // Aquí puedes agregar más rutas hijas para 'puestos', 'reportes', 'perfil', etc.
-            // { path: 'puestos', component: PuestosComponent },
-            // { path: 'reportes', component: ReportesComponent },
         ]
     },
 
