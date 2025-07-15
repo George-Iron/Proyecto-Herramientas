@@ -1,6 +1,6 @@
 # --- PASO 1: Capa de construcción (si es necesario) ---
 # Usa una imagen oficial de Node.js como base. La etiqueta 'alpine' es para una versión más ligera.
-FROM node:18-alpine AS build
+FROM node:20-alpine AS build
 
 # Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
