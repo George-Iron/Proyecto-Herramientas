@@ -2,36 +2,43 @@ name: Construir y Publicar Imagen Docker de la Web
 on:
   push:
     branches:
-      - main # Este workflow se activa cada vez que hay un push a la rama 'main'
+      - main
 
 jobs:
   build-and-publish:
-    runs-on: ubuntu-latest # Ejecutamos este trabajo en una máquina virtual Linux
+    runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write # Necesitamos permisos para publicar en GitHub Packages
+      packages: write
 
     steps:
       - name: Clonar el Repositorio
-        uses: actions/checkout@v4 # Acción para obtener el código del repositorio
+        uses: actions/checkout@v4
+
+      # --- PASO 1: AÑADIR LA ACCIÓN DE METADATOS ---
+      # Esta acción extrae etiquetas y labels de forma inteligente del contexto de Git.
+      - name: Extraer metadatos de Docker (etiquetas y labels)
+        id: meta # Le damos un ID para poder referenciar sus resultados después
+        uses: docker/metadata-action@v5
+        with:
+          # Apunta la imagen al GitHub Container Registry (ghcr.io)
+          # y usa el nombre del repositorio en minúsculas automáticamente.
+          images: ghcr.io/${{ github.repository }}
 
       - name: Iniciar Sesión en GitHub Container Registry
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          # --- CORRECCIÓN ---
-          # Usar el token automático de GitHub, que es más seguro y no requiere configuración manual.
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      # --- PASO 2: USAR LOS METADATOS GENERADOS ---
       - name: Construir y Publicar Imagen Docker
         uses: docker/build-push-action@v5
         with:
-          context: . # Busca el Dockerfile en el directorio actual
+          context: .
           push: true
-          # --- MEJORA ---
-          # Convertir el nombre del repo a minúsculas para cumplir el estándar de Docker.
-          # Añadir una etiqueta con el hash del commit para un versionado preciso.
-          tags: |
-            ghcr.io/${{ github.repository,, }}:latest
-            ghcr.io/${{ github.repository,, }}:${{ github.sha }}
+          # Usa las etiquetas generadas dinámicamente por el paso 'meta'
+          tags: ${{ steps.meta.outputs.tags }}
+          # Usa los labels generados dinámicamente por el paso 'meta' (buena práctica)
+          labels: ${{ steps.meta.outputs.labels }}
