@@ -30,7 +30,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.GEORGE_TOKEN }}
 
       # --- PASO 2: USAR LOS METADATOS GENERADOS ---
       - name: Construir y Publicar Imagen Docker
